@@ -51,7 +51,7 @@
         <scene sceneID="qPs-2c-LaM">
             <objects>
                 <viewController id="kmu-Or-ASE" customClass="HomeViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Mb9-GL-4Uv" customClass="HomeViewC">
+                    <view key="view" contentMode="scaleToFill" id="Mb9-GL-4Uv">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="oOk-Aq-xV3"/>
@@ -61,7 +61,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2w0-Xy-r43" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1022" y="1368"/>
+            <point key="canvasLocation" x="-1001" y="1413"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4On-Qj-bwa">
@@ -145,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PV3-Zi-hyb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-324" y="1368"/>
+            <point key="canvasLocation" x="-303" y="1413"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="YdJ-Rn-4cl">
@@ -161,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U3M-NR-qjh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="378" y="1368"/>
+            <point key="canvasLocation" x="399" y="1413"/>
         </scene>
         <!--Notifications View Controller-->
         <scene sceneID="RGg-kA-AQj">
@@ -177,7 +177,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B9o-Jl-T4U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1062" y="1368"/>
+            <point key="canvasLocation" x="1083" y="1413"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="3us-8B-ZXz">
@@ -193,7 +193,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="unC-Wv-B56" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1734" y="1368"/>
+            <point key="canvasLocation" x="1755" y="1413"/>
         </scene>
     </scenes>
     <resources>
