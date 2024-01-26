@@ -220,7 +220,7 @@ class LoginViewController: UIViewController {
                 if success {
                     self.dismiss(animated: true, completion: nil)
                 }else{
-                    let alert = UIAlertController(title: "Log In Error", message: "Unable to sign you in", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Log In Error", message: "We were unable to log you in.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil ))
                     
                     self.present(alert, animated: true)
@@ -251,7 +251,8 @@ class LoginViewController: UIViewController {
     
     @objc private func didTapCreateAccountButton() {
         let vc = RegistrationViewController()
-        present(vc, animated: true)
+        vc.title = "Create Account"
+        present(UINavigationController(rootViewController: vc), animated: true)
     }
 }
 
