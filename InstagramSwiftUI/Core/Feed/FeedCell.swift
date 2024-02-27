@@ -8,20 +8,24 @@
 import SwiftUI
 
 struct FeedCell: View {
+    let post: Post
     var body: some View {
         VStack{
             // Image + username on top of the post
             HStack{
                 
-                Image("Devon")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 40, height: 40)
-                    .clipShape(Circle())
-                
-                Text("demon")
-                    .font(.footnote)
-                    .fontWeight(.semibold)
+                if let user = post.user {
+                    Image(user.profileImageUrl ?? "")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 40, height: 40)
+                        .clipShape(Circle())
+                    
+                    Text(user.username)
+                        .font(.footnote)
+                        .fontWeight(.semibold)
+                    
+                }
                 
                 Spacer()
             }
@@ -29,7 +33,7 @@ struct FeedCell: View {
             
             // Post image
             
-            Image("Devon")
+            Image(post.imageUrl)
                 .resizable()
                 .scaledToFill()
                 .frame(height: 400)
@@ -70,7 +74,7 @@ struct FeedCell: View {
             
             // Likes label
             
-            Text("23 Likes")
+            Text("\(post.likes) likes")
                 .font(.footnote)
                 .fontWeight(.semibold)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -80,8 +84,8 @@ struct FeedCell: View {
             // Caption label
             
             HStack {
-                Text("demon ").fontWeight(.semibold) +
-                Text("This is some test caption")
+                Text("\(post.user?.username ?? "") ").fontWeight(.semibold) +
+                Text("\(post.caption)")
             }
             .font(.footnote)
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -99,5 +103,5 @@ struct FeedCell: View {
 }
 
 #Preview {
-    FeedCell()
+    FeedCell(post: Post.MOCK_POSTS[1])
 }

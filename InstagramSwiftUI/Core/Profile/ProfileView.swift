@@ -9,11 +9,11 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    private let gridItems: [GridItem] = [
-        .init(.flexible(), spacing: 1),
-        .init(.flexible(), spacing: 1),
-        .init(.flexible(), spacing: 1)
-    ]
+    let user: User
+    
+    var posts: [Post] {
+        return Post.MOCK_POSTS.filter({$0.user?.username == user.username})
+    }
     
     var body: some View {
             ScrollView {
@@ -22,7 +22,7 @@ struct ProfileView: View {
                 VStack(spacing: 10){
                     // pic and stats
                     HStack{
-                        Image("Devon")
+                        Image(user.profileImageUrl ?? "")
                             .resizable()
                             .scaledToFill()
                             .frame(width: 80, height: 80)
@@ -43,12 +43,18 @@ struct ProfileView: View {
                     // name and bio
                     VStack (alignment: .leading, spacing: 4){
                         
-                        Text("Devon Connelly")
-                            .font(.footnote)
-                            .fontWeight(.semibold)
+                        if let fullname = user.fullname {
+                            Text(fullname)
+                                .font(.footnote)
+                                .fontWeight(.semibold)
+                        }
                         
-                        Text("Just keep grinding")
-                            .font(.footnote)
+                        if let bio = user.bio {
+                            Text(bio)
+                                .font(.footnote)
+                        }
+                        
+                      
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal)
@@ -70,16 +76,9 @@ struct ProfileView: View {
                 
                 
                 //post grid view
-                LazyVGrid(columns: gridItems, spacing: 1, content: {
-                    ForEach(0 ... 15, id: \.self) { index in
-                        Image("Devon")
-                            .resizable()
-                            .scaledToFill()
-                    }
-                    
-                })
+                PostGridView(posts: posts)
             }
-                .navigationTitle("Profile")
+                .navigationTitle(user.username)
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar{
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -97,5 +96,5 @@ struct ProfileView: View {
 }
 
 #Preview {
-    ProfileView()
+    ProfileView(user: User.MOCK_USERS[1])
 }
