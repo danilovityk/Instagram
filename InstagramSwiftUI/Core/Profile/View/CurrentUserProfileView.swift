@@ -1,13 +1,13 @@
 //
-//  ProfileView.swift
+//  CurrentUserProfileView.swift
 //  InstagramSwiftUI
 //
-//  Created by Danik on 05.02.2024.
+//  Created by Danik on 19.02.2024.
 //
 
 import SwiftUI
 
-struct ProfileView: View {
+struct CurrentUserProfileView: View {
     
     let user: User
     
@@ -16,19 +16,20 @@ struct ProfileView: View {
     }
     
     var body: some View {
+        NavigationStack {
             ScrollView {
-                //header
+                // header
                 ProfileHeaderView(user: user)
                 
                 //post grid view
                 PostGridView(posts: posts)
             }
-                .navigationTitle(user.username)
+                .navigationTitle("Profile")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar{
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
-                            
+                            AuthService.shared.signout()
                         } label: {
                             Image(systemName: "line.3.horizontal")
                                 .foregroundColor(.black)
@@ -37,9 +38,10 @@ struct ProfileView: View {
 
                     }
                 }
+        }
     }
 }
 
 #Preview {
-    ProfileView(user: User.MOCK_USERS[1])
+    CurrentUserProfileView(user: User.MOCK_USERS[0])
 }

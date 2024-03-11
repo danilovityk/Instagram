@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 struct User: Identifiable, Hashable, Codable {
     let id: String
@@ -15,15 +16,19 @@ struct User: Identifiable, Hashable, Codable {
     var bio: String?
     let email: String
     
+    var isCurrentUser: Bool {
+        guard let currentUid = Auth.auth().currentUser?.uid else { return false }
+        return currentUid == id
+    }
 }
 
 extension User {
     static var MOCK_USERS: [User] = [
-        .init(id: NSUUID().uuidString, username: "AlexAdventure92", profileImageUrl: "man3", fullname: "Alexander Smith", bio: "Keep grinding", email: "connelly@gmail.com"),
-        .init(id: NSUUID().uuidString, username: "designerr", profileImageUrl: "girl1", fullname: "Emma Clark", bio: "Fashionista, traveler, eternal optimist.", email: "venom@gmail.com"),
-        .init(id: NSUUID().uuidString, username: "johnson_aws", profileImageUrl: "man1", fullname: "Maxwell Johnson", bio: "Adventure seeker, thrill chaser, life enthusiast.", email: "aboba@gmail.com"),
-        .init(id: NSUUID().uuidString, username: "theRock", profileImageUrl: "man2", fullname: nil, bio: "Fitness addict, nature explorer, dog dad.", email: "aisec@gmail.com"),
+        .init(id: NSUUID().uuidString, username: "AlexAdventure92", profileImageUrl: "man3", fullname: "Alexander Smith", bio: "Keep grinding", email: "alexAdventure@gmail.com"),
+        .init(id: NSUUID().uuidString, username: "designerr", profileImageUrl: "girl1", fullname: "Emma Clark", bio: "Fashionista, traveler, eternal optimist.", email: "designerr@gmail.com"),
+        .init(id: NSUUID().uuidString, username: "johnson_aws", profileImageUrl: "man1", fullname: "Maxwell Johnson", bio: "Adventure seeker, thrill chaser, life enthusiast.", email: "johnson_aws@gmail.com"),
+        .init(id: NSUUID().uuidString, username: "theRock", profileImageUrl: "man2", fullname: nil, bio: "Fitness addict, nature explorer, dog dad.", email: "theRock@gmail.com"),
 
-        .init(id: NSUUID().uuidString, username: "flower_", profileImageUrl: "girl2", fullname: "Mia Taylor", bio: "Artist at heart, dreamer, nature admirer.", email: "aisec@gmail.com")
+        .init(id: NSUUID().uuidString, username: "flower_", profileImageUrl: "girl2", fullname: "Mia Taylor", bio: "Artist at heart, dreamer, nature admirer.", email: "flower@gmail.com")
     ]
 }
