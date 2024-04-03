@@ -55,4 +55,17 @@ public class AuthManager {
             print(username)
         }
     }
+    
+    /// Attempt to log out Firebase user. Boolean closure callback with the result of the signout.
+    public func LogOut(completion: (Bool) -> Void) {
+        do {
+            try Auth.auth().signOut()
+            completion(true)
+            return
+        }catch {
+            completion(false)
+            print(error)
+            return
+        }
+    }
 }

@@ -202,9 +202,10 @@ class LoginViewController: UIViewController {
               let password = passwordField.text, !password.isEmpty else {
             return
         }
-        
+       
         var username: String?
         var email: String?
+        
         
         if usernameEmail.contains("@"), usernameEmail.contains("."){
             email = usernameEmail
